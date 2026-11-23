@@ -7,9 +7,6 @@ def welcome():
 
 # Displays categories for user to choose from
 def category():
-    print("\nCategories: \n1.) Animals\n2.) Food\n3.) Geography ")
-    category_choice = input("Choose your category, enter 1, 2, 3, or 4 to exit: ")
-    
     # While loop that matches users input with category and prevents them from entering a key not allowed
     while True:
         print("\nCategories: \n1.) Animals\n2.) Food\n3.) Geography ")
@@ -17,6 +14,7 @@ def category():
         
         if category_choice == "1":
             print("\nCategory chosen: Animals")
+            animalCategory()
             break
         elif category_choice == "2":
             print("\nCategory chosen: Food")
@@ -30,10 +28,55 @@ def category():
         else:
             print("\nPlease enter 1, 2, 3, or 4.")
 
+def animalCategory():
+    # Create a dictionary with a list inside
+    animal_questions = [
+        {
+            "question": "What is the fastest land animal?",
+            "A": "Lion",
+            "B": "Tiger",
+            "C": "Cheetah",
+            "D": "Horse",
+            "answer": "C"
+        },
+        {
+            "question": "How many legs does a spider have?",
+            "A": "10",
+            "B": "4",
+            "C": "12",
+            "D": "8",
+            "answer": "D"   
+        },
+        {
+            "question": "What is the biggest animal in the world?",
+            "A": "Giraffe",
+            "B": "Blue whale",
+            "C": "Elephant",
+            "D": "Great white shark",
+            "answer": "A"
+        },
+        {
+            "question": "What animal has the strongest bite force?",
+            "A": "Saltwater crocodile",
+            "B": "Hippopoptamus",
+            "C": "Great white shark",
+            "D": "Lion",
+            "answer": "A"
+        }
+    ]
+
+    # for loop to loop through the questions
+    # Outer loop goes through each question
+    for question in animal_questions:
+        print(f"\n{question['question']}")
+
+        # Inner loop goes through each answer choices
+        for option in ["A", "B", "C", "D"]:
+            print(f"{option}. {question[option]}")
+
+            # Wait for user input
+            user_input = input("\nYou answer: ").strip().upper()
     
-
-
-
 
 
 
